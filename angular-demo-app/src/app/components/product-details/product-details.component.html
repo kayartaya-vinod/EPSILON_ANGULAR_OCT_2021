@@ -1,0 +1,38 @@
+<!-- undefined/null/0/''/false evaluates to boolean false; everything else evaluates to boolean true -->
+<div *ngIf="!store.product">
+  <app-loading-gif message="loading data, please wait..."> </app-loading-gif>
+</div>
+<div *ngIf="store.product">
+  <img
+    [src]="store.product.picture"
+    [alt]="store.product.description"
+    class="img-thumbnail"
+  />
+  <h3>{{ store.product.name }}</h3>
+  <table class="table">
+    <tr>
+      <td>Description</td>
+      <td>{{ store.product.description }}</td>
+    </tr>
+    <tr>
+      <td>Unit price</td>
+      <td>{{ store.product.unit_price }}</td>
+    </tr>
+    <tr>
+      <td>Discount</td>
+      <td>{{ store.product.discount }} %</td>
+    </tr>
+    <tr>
+      <td>Brand</td>
+      <td>{{ store.product.brand }}</td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>{{ store.product.category }}</td>
+    </tr>
+    <tr>
+      <td>Quantity per unit</td>
+      <td>{{ store.product.quantity_per_unit }}</td>
+    </tr>
+  </table>
+</div>

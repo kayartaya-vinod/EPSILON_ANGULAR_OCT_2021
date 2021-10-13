@@ -1,0 +1,22 @@
+<h3>List of all products</h3>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>
+        <div class="btn btn-link" (click)="viewDetailsFor(p)">
+          {{ p.name }}
+        </div>
+      </td>
+      <td>{{ p.brand }}</td>
+      <td>{{ p.category }}</td>
+    </tr>
+  </tbody>
+</table>

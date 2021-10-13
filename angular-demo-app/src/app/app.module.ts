@@ -11,6 +11,10 @@ import { FullnamePipe } from './pipes/fullname.pipe';
 import { AgePipe } from './pipes/age.pipe';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { MovieTableComponent } from './components/movie-table/movie-table.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { LoadingGifComponent } from './components/loading-gif/loading-gif.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { MovieTableComponent } from './components/movie-table/movie-table.compon
     MovieTableComponent,
     FullnamePipe,
     AgePipe,
+    ProductDetailsComponent,
+    LoadingGifComponent,
+    ProductListComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +38,6 @@ import { MovieTableComponent } from './components/movie-table/movie-table.compon
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent, CounterComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -934,8 +934,37 @@
       "unit_price": 41,
       "picture": "https://vinbasket.herokuapp.com/product-images/10000171_11-fresho-cabbage-red.jpg",
       "discount": 4
+    },
+    {
+      "id": 86,
+      "category": "fruit",
+      "name": "Mango",
+      "brand": "Fresho",
+      "description": "Alphanso Mango",
+      "quantity_per_unit": "6 units in 1 box",
+      "unit_price": 250,
+      "picture": "http://example.com/mango.jpg",
+      "discount": 10
+    },
+    {
+      "id": 87,
+      "category": "fruit",
+      "name": "Test 123",
+      "brand": "Zespri",
+      "description": "Test Desc 123",
+      "quantity_per_unit": "",
+      "unit_price": 0,
+      "picture": "",
+      "discount": 0
     }
   ],
-  "categories": ["vegetable", "fruit"],
-  "brands": ["Fresho", "Malnad", "Zespri"]
+  "categories": [
+    "vegetable",
+    "fruit"
+  ],
+  "brands": [
+    "Fresho",
+    "Malnad",
+    "Zespri"
+  ]
 }

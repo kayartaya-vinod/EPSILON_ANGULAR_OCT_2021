@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Employee } from 'src/app/model/employee';
+import { Employee } from '@model/employee';
 import data from 'src/employees.json';
 
 @Component({
@@ -8,6 +8,7 @@ import data from 'src/employees.json';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent {
+
 
   employees: Employee[] = data;
   start: number = 0;

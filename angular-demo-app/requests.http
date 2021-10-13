@@ -1,0 +1,27 @@
+GET /products/2
+Host: localhost:8080
+Accept: application/json
+
+###
+
+GET /products?brand=Zespri
+Host: localhost:8080
+Accept: application/json
+
+###
+
+POST /products
+Host: localhost:8080
+Accept: application/json
+Content-Type: application/json
+
+{
+  "category": "vegetable",
+  "name": "Potato Big",
+  "brand": "KVinod",
+  "description": "Potato (big in size) cleaned",
+  "quantity_per_unit": "1 KG, approx. 4 to 6 nos",
+  "unit_price": 29,
+  "picture": "https://vinbasket.herokuapp.com/product-images/10000159_14-fresho-potato.jpg",
+  "discount": 4
+}
