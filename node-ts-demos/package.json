@@ -4,7 +4,8 @@
     "description": "demo project for epsilon",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "ts-node",
+        "compile": "tsc"
     },
     "repository": {
         "type": "git",
@@ -22,7 +23,6 @@
     },
     "homepage": "https://github.com/kayartaya-vinod/EPSILON_ANGULAR_OCT_2021#readme",
     "dependencies": {
-        "axios": "^0.22.0",
-        "mongodb": "^4.1.3"
+        "ts-node": "^10.2.1"
     }
 }

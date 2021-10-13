@@ -1,0 +1,7 @@
+img.img-thumbnail {
+  max-height: 75px;
+}
+
+tr > td {
+  font-size: 15pt;
+}

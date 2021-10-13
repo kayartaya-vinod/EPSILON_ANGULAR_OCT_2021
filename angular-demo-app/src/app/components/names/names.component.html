@@ -1,0 +1,15 @@
+<h3>This is NamesComponent</h3>
+
+<p>Displaying friends using handler bars looks like this - {{ friends }}</p>
+
+<div>
+  <ol>
+    <li *ngFor="let fr of friends; index as n">
+      {{ fr }}
+      <span class="btn-delete" (click)="deleteFriend(n)">x</span>
+    </li>
+  </ol>
+</div>
+
+<button class="btn btn-primary">Add</button>
+<button class="btn btn-danger">Delete</button>

@@ -1,0 +1,21 @@
+<h3>This is MovieSearchComponent</h3>
+
+<form (submit)="fetchMovies()">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="enter search text here.."
+    autofocus
+    name="tfSearchText"
+    [(ngModel)]="searchText"
+  />
+  <!-- [(ngModel)] is equivalent to two bindings 
+  1. (change)=".."
+  2. [value]="searchText" -->
+</form>
+
+<h4>Value of searchText is {{ searchText }}</h4>
+
+<app-movie-table [movieList]="movies"></app-movie-table>
+
+<button class="btn btn-primary" (click)="loadMore()">Load more</button>

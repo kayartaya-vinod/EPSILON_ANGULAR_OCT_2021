@@ -1,0 +1,9 @@
+@startuml
+
+
+interface Vehicle{}
+
+Vehicle <|... Car
+Vehicle <|... Bike
+
+@enduml
