@@ -1,0 +1,35 @@
+<div *ngIf="product" class="card">
+  <img
+    [src]="product.picture"
+    class="card-img-top"
+    [alt]="product.name"
+    [routerLink]="['/products', 'details', product.id]"
+  />
+
+  <div class="card-body">
+    <h5 class="card-title" [title]="product.description">
+      <div *ngIf="product.description.length <= 25">
+        {{ product.description }}
+      </div>
+      <div *ngIf="product.description.length > 25">
+        {{ product.description | slice: 0:25 }}...
+      </div>
+    </h5>
+    <p class="card-text">{{ product.brand }} | {{ product.name }}</p>
+    <p>
+      <del>
+        {{ product.unit_price | currency: "INR" }}
+      </del>
+      &nbsp;
+      <span>
+        {{
+          (product.unit_price * (100 - product.discount)) / 100
+            | currency: "INR"
+        }}
+        &nbsp; ({{ product.discount }}% off)
+      </span>
+    </p>
+
+    <app-add-to-cart-button [product]="product"></app-add-to-cart-button>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div *ngIf="!isInCart">
+  <button (click)="addToCart()" class="btn btn-add-to-cart btn-secondary">
+    Add to cart
+  </button>
+</div>
+
+<div *ngIf="isInCart">
+  <button (click)="decrement()" class="btn btn-increment btn-secondary">
+    -
+  </button>
+  {{ quantity }} in cart
+  <button (click)="increment()" class="btn btn-decrement btn-secondary">
+    +
+  </button>
+</div>

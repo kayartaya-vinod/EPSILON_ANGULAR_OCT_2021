@@ -1,0 +1,8 @@
+.btn-increment,
+.btn-decrement {
+  min-width: 50px;
+}
+
+.btn-add-to-cart {
+  min-width: 100%;
+}

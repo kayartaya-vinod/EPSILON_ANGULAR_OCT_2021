@@ -1,0 +1,37 @@
+<div *ngIf="cartService.cart.length === 0">
+  <h3>Your cart is empty</h3>
+</div>
+
+<div *ngIf="cartService.cart.length">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl no</th>
+        <th>Product name</th>
+        <th>Unit price</th>
+        <th>Discount</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th>Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let li of cartService.cart; index as slno">
+        <td>{{ slno + 1 }}</td>
+        <td>
+          <img
+            [src]="li.product.picture"
+            [alt]="li.product.description"
+            class="img"
+          />
+          {{ li.product.description }}
+        </td>
+        <td>{{ li.product.unit_price }}</td>
+        <td>{{ li.product.discount }}%</td>
+        <td>{{ li.quantity }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

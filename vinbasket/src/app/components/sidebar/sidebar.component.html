@@ -1,0 +1,29 @@
+<h3>Browse by brands</h3>
+
+<ul class="list-group">
+  <li class="list-group-item" [routerLink]="['/products']">All</li>
+  <li class="list-group-item" *ngFor="let b of brands">
+    <div [routerLink]="['/products']" [queryParams]="{ brand: b }">
+      {{ b | titlecase }}
+    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h3>Browse by category</h3>
+<ul class="list-group">
+  <li class="list-group-item" [routerLink]="['/products']">All</li>
+  <li class="list-group-item" *ngFor="let c of categories">
+    <div [routerLink]="['/products']" [queryParams]="{ category: c }">
+      {{ c | titlecase }}
+    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h3>Cart options</h3>
+<ul class="list-group">
+  <li class="list-group-item" routerLink="/view-cart">View cart</li>
+</ul>
