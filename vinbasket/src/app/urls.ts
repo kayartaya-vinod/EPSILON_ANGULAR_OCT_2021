@@ -5,3 +5,4 @@ export const productsUrl = baseUrl + 'products/';
 export const brandsUrl = baseUrl + 'brands/';
 export const categoriesUrl = baseUrl + 'categories/';
 export const loginUrl = baseUrl + 'login/';
+export const ordersUrl = baseUrl + 'orders/';

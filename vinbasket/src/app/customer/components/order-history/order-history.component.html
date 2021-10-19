@@ -1,0 +1,35 @@
+<h3>Your order history</h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Sl no</th>
+      <th>Ordered on</th>
+      <th>Status</th>
+      <th class="text-end">Item count</th>
+      <th class="text-end">You paid</th>
+      <th class="text-end">Your savings</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let order of orders; index as slno"
+      [ngClass]="{ 'table-primary': order === orderToDisplayDetails }"
+    >
+      <td>{{ slno + 1 }}</td>
+      <td>{{ order.orderDate | date: "MMMM d, yyyy h:m a" }}</td>
+      <td>{{ order.orderStatus }}</td>
+      <td class="text-end">{{ getOrderItemCount(order) }}</td>
+      <td class="text-end">{{ getOrderValue(order) | currency: "INR" }}</td>
+      <td class="text-end">{{ getOrderSavings(order) | currency: "INR" }}</td>
+      <td>
+        <button (click)="orderToDisplayDetails = order" class="btn btn-link">
+          View details
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-order-details [order]="orderToDisplayDetails"></app-order-details>

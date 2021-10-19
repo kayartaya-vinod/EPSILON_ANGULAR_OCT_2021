@@ -1,0 +1,45 @@
+<div *ngIf="order">
+  <h3>Item details of the selected order</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl no</th>
+        <th>Product name</th>
+        <th class="text-end">Unit price</th>
+        <th class="text-end">Discount</th>
+        <th>Quantity</th>
+        <th class="text-end">Amount</th>
+        <th class="text-end">Savings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let li of order.lineItems; index as slno">
+        <td>{{ slno + 1 }}</td>
+        <td>
+          <img
+            [src]="li.product.picture"
+            [alt]="li.product.description"
+            class="img"
+          />
+          {{ li.product.description }}
+        </td>
+        <td class="text-end">
+          <del>{{ li.product.unit_price | currency: "INR" }}</del>
+          &nbsp;
+        </td>
+        <td class="text-end">{{ li.product.discount }}%</td>
+        <td></td>
+        <td class="text-end"></td>
+        <td class="text-end"></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="text-end">
+        <td colspan="5"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

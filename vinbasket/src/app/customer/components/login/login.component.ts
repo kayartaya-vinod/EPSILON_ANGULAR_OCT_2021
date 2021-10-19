@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../../../service/customer.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   loginData: { email: (string), password: (string) } = { email: 'vinod@vinod.co', password: 'topsecret' };
 
   constructor(private customerService: CustomerService,
+    private activatedRoute: ActivatedRoute,
     private router: Router) {
   }
 
@@ -27,7 +28,13 @@ export class LoginComponent implements OnInit {
       let resp: any = await this.customerService.login(email, password);
       sessionStorage.setItem('jwt', resp.token);
       sessionStorage.setItem('customer', resp.name);
-      this.router.navigate(['/'])
+      this.activatedRoute.queryParams.subscribe(qp => {
+        let { redirectTo } = qp;
+        if (!redirectTo) {
+          redirectTo = '/'
+        }
+        this.router.navigate([redirectTo])
+      })
     } catch (err) {
       console.log('err is', err);
     }
