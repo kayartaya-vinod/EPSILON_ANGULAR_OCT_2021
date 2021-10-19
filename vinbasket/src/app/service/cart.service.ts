@@ -11,7 +11,16 @@ export class CartService {
   cart: LineItem[] = [];
 
 
-  constructor() { }
+  constructor() {
+    let strCart: (string | null) = localStorage.getItem('cart');
+    if (strCart) {
+      this.cart = JSON.parse(strCart);
+    }
+  }
+
+  persistCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
 
   // call this method only when the product given is not in the cart
   addToCart(product: Product): void {
@@ -19,6 +28,7 @@ export class CartService {
     li.product = product;
     li.quantity = 1;
     this.cart.push(li);
+    this.persistCartToLocalStorage();
   }
 
   removeFromCart(product: Product): void {
@@ -26,6 +36,7 @@ export class CartService {
     if (index > -1) {
       this.cart.splice(index, 1);
     }
+    this.persistCartToLocalStorage();
   }
 
   // call this method only when the given product is already present in the cart
@@ -34,6 +45,7 @@ export class CartService {
     if (li) {
       li.quantity++;
     }
+    this.persistCartToLocalStorage();
   }
 
   decrementQuantity(product: Product): void {
@@ -45,6 +57,7 @@ export class CartService {
         this.cart.splice(index, 1); // remove the line item from the cart, if the quantity is 0
       }
     }
+    this.persistCartToLocalStorage();
   }
 
   isInCart(product: Product): boolean {
@@ -58,7 +71,23 @@ export class CartService {
 
   emptyCart(): void {
     this.cart = [];
+    this.persistCartToLocalStorage();
   }
 
+  getCartValue(): number {
+    let total: number = 0;
+    this.cart.forEach(li => total += li.product.unit_price * li.quantity * (100 - li.product.discount) / 100);
+    return total;
+  }
+
+  getCartSavings(): number {
+    let savings: number = 0;
+    this.cart.forEach(li => savings += li.product.unit_price * li.quantity * li.product.discount / 100);
+    return savings;
+  }
+
+  getLineItemQuantity(): number {
+    return this.cart.length;
+  }
 
 }

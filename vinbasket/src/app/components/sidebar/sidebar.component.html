@@ -21,9 +21,26 @@
   </li>
 </ul>
 
-<hr />
+<div *ngIf="customerService.isLoggedIn">
+  <hr />
+  <h3>Customer options</h3>
+  <ul class="list-group">
+    <li class="list-group-item">Order history</li>
+    <li class="list-group-item">View/update profile</li>
+    <li class="list-group-item">Change password</li>
+  </ul>
+</div>
 
-<h3>Cart options</h3>
-<ul class="list-group">
-  <li class="list-group-item" routerLink="/view-cart">View cart</li>
-</ul>
+<div *ngIf="!isCartEmpty">
+  <hr />
+  <h3>Cart options</h3>
+  <ul class="list-group">
+    <li class="list-group-item" routerLink="/view-cart">
+      <h2 class="fas fa-shopping-cart text-primary">
+        <span id="lineItemQuantity">{{ lineItemQuantity }}</span>
+      </h2>
+      (total {{ cartValue | currency: "INR" }}, savings
+      {{ cartSavings | currency: "INR" }})
+    </li>
+  </ul>
+</div>

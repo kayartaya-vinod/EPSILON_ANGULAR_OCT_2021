@@ -8,11 +8,12 @@
       <tr>
         <th>Sl no</th>
         <th>Product name</th>
-        <th>Unit price</th>
-        <th>Discount</th>
+        <th class="text-end">Unit price</th>
+        <th class="text-end">Discount</th>
         <th>Quantity</th>
-        <th>Amount</th>
-        <th>Savings</th>
+        <th class="text-end">Amount</th>
+        <th class="text-end">Savings</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -26,12 +27,60 @@
           />
           {{ li.product.description }}
         </td>
-        <td>{{ li.product.unit_price }}</td>
-        <td>{{ li.product.discount }}%</td>
-        <td>{{ li.quantity }}</td>
-        <td></td>
-        <td></td>
+        <td class="text-end">
+          <del>{{ li.product.unit_price | currency: "INR" }}</del>
+          &nbsp;
+          {{ getDiscountedUnitPrice(li.product) | currency: "INR" }}
+        </td>
+        <td class="text-end">{{ li.product.discount }}%</td>
+        <td>
+          <app-add-to-cart-button
+            [product]="li.product"
+          ></app-add-to-cart-button>
+        </td>
+        <td class="text-end">
+          {{ getAmount(li) | currency: "INR" }}
+        </td>
+        <td class="text-end">
+          {{ getSavings(li) | currency: "INR" }}
+        </td>
+        <td>
+          <span
+            (click)="cartService.removeFromCart(li.product)"
+            class="text-danger"
+            [style]="{ cursor: 'pointer' }"
+          >
+            <i class="far fa-trash-alt"></i>
+          </span>
+        </td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr class="text-end">
+        <td colspan="5"></td>
+        <td>{{ cartValue | currency: "INR" }}</td>
+        <td>{{ cartSavings | currency: "INR" }}</td>
+        <td></td>
+      </tr>
+    </tfoot>
   </table>
+
+  <button
+    class="btn btn-danger"
+    [swal]="{
+      title: 'This action is irreversible',
+      text: 'Are you sure?',
+      showCancelButton: true,
+      icon: 'question',
+      backdrop: true,
+      timer: 5000,
+      allowOutsideClick: false,
+      allowEscapeKey: true,
+      confirmButtonText: 'Yes, go ahead',
+      cancelButtonText: 'No'
+    }"
+    (confirm)="cartService.emptyCart()"
+  >
+    Empty cart
+  </button>
 </div>

@@ -1,6 +1,29 @@
 <!-- .alert.alert-primary>.container>h1{VinBasket} -->
 <div class="alert alert-primary">
   <div class="container">
-    <h1 routerLink="/" [style]="{ cursor: 'pointer' }">VinBasket</h1>
+    <div class="row">
+      <div class="col">
+        <h1 routerLink="/" [style]="{ cursor: 'pointer' }">VinBasket</h1>
+      </div>
+      <div class="col text-end">
+        <div *ngIf="customerService.isLoggedIn">
+          <button class="btn btn-link no-pointer">
+            Hello {{ customerService.loggedInCustomerName }}
+          </button>
+          |
+          <button (click)="customerService.logout()" class="btn btn-link">
+            Logout
+          </button>
+        </div>
+
+        <div *ngIf="!customerService.isLoggedIn">
+          <button routerLink="/customer/login" class="btn btn-link">
+            Login
+          </button>
+          |
+          <button class="btn btn-link">Register</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

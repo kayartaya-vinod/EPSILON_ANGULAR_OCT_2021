@@ -1,0 +1,10 @@
+.btn-link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.no-pointer {
+  cursor: default;
+}
