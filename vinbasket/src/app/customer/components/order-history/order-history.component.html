@@ -13,10 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let order of orders; index as slno"
-      [ngClass]="{ 'table-primary': order === orderToDisplayDetails }"
-    >
+    <tr *ngFor="let order of orders; index as slno">
       <td>{{ slno + 1 }}</td>
       <td>{{ order.orderDate | date: "MMMM d, yyyy h:m a" }}</td>
       <td>{{ order.orderStatus }}</td>
@@ -24,7 +21,12 @@
       <td class="text-end">{{ getOrderValue(order) | currency: "INR" }}</td>
       <td class="text-end">{{ getOrderSavings(order) | currency: "INR" }}</td>
       <td>
-        <button (click)="orderToDisplayDetails = order" class="btn btn-link">
+        <button
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="orderToDisplayDetails = order"
+          class="btn btn-link"
+        >
           View details
         </button>
       </td>
@@ -32,4 +34,30 @@
   </tbody>
 </table>
 
-<app-order-details [order]="orderToDisplayDetails"></app-order-details>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Item details of the selected order
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-order-details [order]="orderToDisplayDetails"></app-order-details>
+      </div>
+    </div>
+  </div>
+</div>

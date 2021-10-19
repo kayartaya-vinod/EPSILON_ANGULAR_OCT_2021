@@ -26,19 +26,22 @@ export class OrderService {
   }
 
 
-  getOrderValue(order: Order): number {
+  getOrderValue(order: (Order | undefined)): (number | undefined) {
+    if (!order) return;
     let total: number = 0;
     order.lineItems.forEach(li => total += li.product.unit_price * li.quantity * (100 - li.product.discount) / 100);
     return total;
   }
 
-  getOrderSavings(order: Order): number {
+  getOrderSavings(order: (Order | undefined)): (number | undefined) {
+    if (!order) return;
     let savings: number = 0;
     order.lineItems.forEach(li => savings += li.product.unit_price * li.quantity * li.product.discount / 100);
     return savings;
   }
 
-  getOrderItemCount(order: Order): number {
+  getOrderItemCount(order: (Order | undefined)): (number | undefined) {
+    if (!order) return;
     return order.lineItems.length;
   }
 

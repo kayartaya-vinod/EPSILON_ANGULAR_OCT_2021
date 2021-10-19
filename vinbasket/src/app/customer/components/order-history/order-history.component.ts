@@ -12,7 +12,7 @@ import { OrderService } from '../../service/order.service';
 export class OrderHistoryComponent implements OnInit {
 
   orders: Array<Order> = [];
-  orderToDisplayDetails: (Order | null) = null;
+  orderToDisplayDetails: (Order | undefined);
 
 
   constructor(private orderService: OrderService,
@@ -31,14 +31,14 @@ export class OrderHistoryComponent implements OnInit {
       .subscribe(data => this.orders = data);
   }
 
-  getOrderValue(order: Order): number {
+  getOrderValue(order: (Order | undefined)): (number | undefined) {
     return this.orderService.getOrderValue(order);
   }
 
-  getOrderSavings(order: Order): number {
+  getOrderSavings(order: (Order | undefined)): (number | undefined) {
     return this.orderService.getOrderSavings(order);
   }
-  getOrderItemCount(order: Order): number {
+  getOrderItemCount(order: (Order | undefined)): (number | undefined) {
     return this.orderService.getOrderItemCount(order);
   }
 }
