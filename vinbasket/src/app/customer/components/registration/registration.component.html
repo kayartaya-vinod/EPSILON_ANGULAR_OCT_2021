@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col">
+    <h3>New customers please register</h3>
+    <form>
+      <div class="mb-3">
+        <label for="fullname" class="form-label">Fullname</label>
+        <input
+          type="text"
+          [(ngModel)]="name"
+          name="fullname"
+          class="form-control"
+          id="fullname"
+          aria-describedby="fullnameHelp"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          id="password"
+        />
+
+        <div>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="showPassword"
+            name="showPasswordCheckbox"
+            id="showPasswordCheckbox"
+          />
+          <label class="form-check-label" for="showPasswordCheckbox">
+            Show password
+          </label>
+        </div>
+      </div>
+
+      <button (click)="register()" type="submit" class="btn btn-primary">
+        Register
+      </button>
+
+      Existing customers please
+      <button routerLink="/customer/login" class="btn btn-link">login</button>
+    </form>
+  </div>
+  <div class="col-2"></div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "header": {
+    "title": "VinBasket",
+    "login": "Login",
+    "register": "Register",
+    "greet": "Welcome",
+    "logout": "Logout"
+  },
+  "sidebar": {
+    "browseByBrands": "Browse by brands",
+    "browseByCategories": "Browse by categories",
+    "custOptions": {
+      "title": "Customer options",
+      "orderHistory": "Order history",
+      "viewOrUpdateProfile": "View/update profile",
+      "changePwd": "Change your password"
+    },
+    "cartOptions": {
+      "title": "Cart options"
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "Existing customers please login",
+      "email": "Email address",
+      "pwd": "Password",
+      "email_share": "We'll never share your email with anyone else.",
+      "loginBtnTxt": "Login",
+      "registerHint": "New customers please",
+      "registerTxt": "register"
+    }
+  }
+}

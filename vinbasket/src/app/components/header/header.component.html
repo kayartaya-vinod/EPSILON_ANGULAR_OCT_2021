@@ -3,25 +3,36 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 routerLink="/" [style]="{ cursor: 'pointer' }">VinBasket</h1>
+        <h1 routerLink="/" [style]="{ cursor: 'pointer' }">
+          {{ "header.title" | translate }}
+        </h1>
       </div>
       <div class="col text-end">
         <div *ngIf="customerService.isLoggedIn">
           <button class="btn btn-link no-pointer">
-            Hello {{ customerService.loggedInCustomerName }}
+            {{ "header.greet" | translate }}
+            {{ customerService.loggedInCustomerName }}
           </button>
           |
           <button (click)="customerService.logout()" class="btn btn-link">
-            Logout
+            {{ "header.logout" | translate }}
           </button>
         </div>
 
         <div *ngIf="!customerService.isLoggedIn">
           <button routerLink="/customer/login" class="btn btn-link">
-            Login
+            {{ "header.login" | translate }}
           </button>
           |
-          <button class="btn btn-link">Register</button>
+          <button routerLink="/customer/register" class="btn btn-link">
+            {{ "header.register" | translate }}
+          </button>
+        </div>
+
+        <div>
+          <button (click)="changeLanguage('en')" class="btn btn-link">English</button> |
+          <button (click)="changeLanguage('ja')" class="btn btn-link">日本</button> |
+          <button (click)="changeLanguage('in_kn')" class="btn btn-link">ಕನ್ನಡ</button>
         </div>
       </div>
     </div>

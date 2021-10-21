@@ -1,0 +1,33 @@
+{
+  "header": {
+    "title": "ヴィンバスケット",
+    "login": "ログイン",
+    "register": "登録",
+    "greet": "こんにちは",
+    "logout": "ログアウト"
+  },
+  "sidebar": {
+    "browseByBrands": "ブランドで閲覧",
+    "browseByCategories": "カテゴリ別に閲覧",
+    "custOptions": {
+      "title": "顧客オプション",
+      "orderHistory": "注文履歴",
+      "viewOrUpdateProfile": "プロファイルの表示/更新",
+      "changePwd": "パスワードを変更してください"
+    },
+    "cartOptions": {
+      "title": "カートオプション"
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "既存のお客様はログインしてください",
+      "email": "メールアドレス",
+      "pwd": "パスワード",
+      "email_share": "他の人とメールを共有することはありません。",
+      "loginBtnTxt": "ログイン",
+      "registerHint": "新規のお客様はどうぞ",
+      "registerTxt": "登録"
+    }
+  }
+}

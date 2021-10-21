@@ -11,6 +11,7 @@ import { OrderService } from '../../service/order.service';
 })
 export class OrderHistoryComponent implements OnInit {
 
+  dataLoaded: boolean = false;
   orders: Array<Order> = [];
   orderToDisplayDetails: (Order | undefined);
 
@@ -28,7 +29,10 @@ export class OrderHistoryComponent implements OnInit {
 
     this.orderService
       .getOrders()
-      .subscribe(data => this.orders = data);
+      .subscribe(data => {
+        this.orders = data;
+        this.dataLoaded = true;
+      });
   }
 
   getOrderValue(order: (Order | undefined)): (number | undefined) {

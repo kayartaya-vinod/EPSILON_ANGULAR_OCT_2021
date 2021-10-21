@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { CustomerService } from '@service/customer.service';
 
 @Component({
@@ -8,9 +9,16 @@ import { CustomerService } from '@service/customer.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public customerService: CustomerService) { }
+
+
+  constructor(public customerService: CustomerService,
+    private ts: TranslateService) { }
 
   ngOnInit(): void {
+  }
+
+  changeLanguage(lang: string): void {
+    this.ts.use(lang);
   }
 
 }

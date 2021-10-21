@@ -1,10 +1,12 @@
 <div class="row">
   <div class="col-2"></div>
   <div class="col">
-    <h3>Existing customers please login</h3>
+    <h3>{{ "customer.login.title" | translate }}</h3>
     <form>
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
+        <label for="email" class="form-label">{{
+          "customer.login.email" | translate
+        }}</label>
         <input
           type="email"
           [(ngModel)]="loginData.email"
@@ -14,11 +16,13 @@
           aria-describedby="emailHelp"
         />
         <div id="emailHelp" class="form-text">
-          We'll never share your email with anyone else.
+          {{ "customer.login.email_share" | translate }}
         </div>
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">{{
+          "customer.login.pwd" | translate
+        }}</label>
         <input
           type="password"
           [(ngModel)]="loginData.password"
@@ -28,7 +32,12 @@
         />
       </div>
       <button (click)="login()" type="submit" class="btn btn-primary">
-        Login
+        {{ "customer.login.loginBtnTxt" | translate }}
+      </button>
+
+      {{ "customer.login.registerHint" | translate }}
+      <button routerLink="/customer/register" class="btn btn-link">
+        {{ "customer.login.registerTxt" | translate }}
       </button>
     </form>
   </div>

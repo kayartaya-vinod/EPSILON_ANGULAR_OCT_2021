@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
-import { loginUrl } from 'src/app/urls';
+import { customersUrl, loginUrl } from 'src/app/urls';
+import { Customer } from '../customer/model/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +31,14 @@ export class CustomerService {
     sessionStorage.clear();
     this.loggedInCustomerName = undefined;
     this.router.navigate(['/customer/login'])
+  }
+
+  register(name: string, email: string, password: string): Observable<any> {
+    let cust = new Customer();
+    cust.name = name;
+    cust.email = email;
+    cust.password = password;
+    return this.httpClient.post(customersUrl, cust);
+
   }
 }

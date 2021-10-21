@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -17,6 +17,9 @@ import { ViewCartComponent } from './components/view-cart/view-cart.component';
 // npm install sweetalert2 @sweetalert2/ngx-sweetalert2
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CustomHttpInterceptorService } from '@service/custom-http-interceptor.service';
+import { TranslateLoader, TranslateModule, TranslateModuleConfig } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // route definitions; array of 'Route' objects
 
@@ -54,6 +57,14 @@ const routes: Routes = [
   }
 ];
 
+const trCfg: TranslateModuleConfig = {
+  loader: {
+    provide: TranslateLoader,
+    deps: [HttpClient],
+    useFactory: (httpClient: HttpClient) => new TranslateHttpLoader(httpClient)
+  }
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,9 +83,16 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    TranslateModule.forRoot(trCfg)
   ],
-  providers: [],
+  providers: [
+    {
+      useClass: CustomHttpInterceptorService,
+      provide: HTTP_INTERCEPTORS,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

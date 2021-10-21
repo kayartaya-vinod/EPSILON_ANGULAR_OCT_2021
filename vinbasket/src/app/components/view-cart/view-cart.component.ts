@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LineItem } from '@model/line-item';
 import { Product } from '@model/product';
 import { CartService } from '@service/cart.service';
+import { Order } from 'src/app/customer/model/order';
+import { OrderService } from 'src/app/customer/service/order.service';
 
 @Component({
   selector: 'app-view-cart',
@@ -10,7 +13,9 @@ import { CartService } from '@service/cart.service';
 })
 export class ViewCartComponent implements OnInit {
 
-  constructor(public cartService: CartService) { }
+  constructor(public cartService: CartService,
+    private orderService: OrderService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,4 +40,15 @@ export class ViewCartComponent implements OnInit {
     return this.cartService.getCartSavings();
   }
 
+  placeOrder() {
+    let order: Order = new Order();
+    order.lineItems = [...this.cartService.cart];
+
+    this.orderService
+      .placeOrder(order)
+      .subscribe(() => {
+        this.cartService.emptyCart();
+        this.router.navigate(['/customer', 'order-history']);
+      });
+  }
 }

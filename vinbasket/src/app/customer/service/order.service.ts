@@ -6,25 +6,18 @@ import { Order } from '../model/order';
 
 import 'rxjs/add/operator/map';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
 
   getOrders(): Observable<Order[]> {
-
-    let options = {
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('jwt')}`,
-        Accept: 'application/json'
-      }
-    };
-
     return this.httpClient
-      .get(ordersUrl, options)
+      .get(ordersUrl)
       .map(value => value as Order[]);
   }
-
 
   getOrderValue(order: (Order | undefined)): (number | undefined) {
     if (!order) return;
@@ -45,5 +38,9 @@ export class OrderService {
     return order.lineItems.length;
   }
 
+  placeOrder(order: Order): Observable<any> {
+    return this.httpClient
+      .post(ordersUrl, order);
+  }
 
 }

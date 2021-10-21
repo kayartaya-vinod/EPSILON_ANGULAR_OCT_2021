@@ -1,0 +1,33 @@
+{
+  "header": {
+    "title": "ವಿನ್ಬಾಸ್ಕೆಟ್",
+    "login": "ಲಾಗಿನ್",
+    "register": "ನೋಂದಣಿ",
+    "greet": "ಸ್ವಾಗತ",
+    "logout": "ಲಾಗ್‌ಔಟ್"
+  },
+  "sidebar": {
+    "browseByBrands": "ಬ್ರಾಂಡ್‌ಗಳ ಮೂಲಕ ಬ್ರೌಸ್ ಮಾಡಿ",
+    "browseByCategories": "ವರ್ಗಗಳ ಮೂಲಕ ಬ್ರೌಸ್ ಮಾಡಿ",
+    "custOptions": {
+      "title": "ಗ್ರಾಹಕರ ಆಯ್ಕೆಗಳು",
+      "orderHistory": "ಆರ್ಡರ್ ಇತಿಹಾಸ",
+      "viewOrUpdateProfile": "ಪ್ರೊಫೈಲ್ ವೀಕ್ಷಿಸಿ/ಅಪ್‌ಡೇಟ್ ಮಾಡಿ",
+      "changePwd": "ಗುಪ್ತಪದವನ್ನು ಬದಲಿಸಿ"
+    },
+    "cartOptions": {
+      "title": "ಕಾರ್ಟ್ ಆಯ್ಕೆಗಳು"
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "ಈಗಿರುವ ಗ್ರಾಹಕರು ದಯವಿಟ್ಟು ಲಾಗಿನ್ ಮಾಡಿ",
+      "email": "ಇಮೇಲ್ ವಿಳಾಸ",
+      "pwd": "ಪಾಸ್‌ವರ್ಡ್",
+      "email_share": "ನಾವು ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ಬೇರೆಯವರೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳುವುದಿಲ್ಲ.",
+      "loginBtnTxt": "ಲಾಗಿನ್",
+      "registerHint": "ಹೊಸ ಗ್ರಾಹಕರು ದಯವಿಟ್ಟು",
+      "registerTxt": "ನೋಂದಾಯಿಸಿ"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<h3>Browse by brands</h3>
+<h3>{{ "sidebar.browseByBrands" | translate }}</h3>
 
 <ul class="list-group">
   <li class="list-group-item" [routerLink]="['/products']">All</li>
@@ -11,7 +11,7 @@
 
 <hr />
 
-<h3>Browse by category</h3>
+<h3>{{ "sidebar.browseByCategories" | translate }}</h3>
 <ul class="list-group">
   <li class="list-group-item" [routerLink]="['/products']">All</li>
   <li class="list-group-item" *ngFor="let c of categories">
@@ -23,19 +23,23 @@
 
 <div *ngIf="customerService.isLoggedIn">
   <hr />
-  <h3>Customer options</h3>
+  <h3>{{ "sidebar.custOptions.title" | translate }}</h3>
   <ul class="list-group">
     <li routerLink="/customer/order-history" class="list-group-item">
-      Order history
+      {{ "sidebar.custOptions.orderHistory" | translate }}
     </li>
-    <li class="list-group-item">View/update profile</li>
-    <li class="list-group-item">Change password</li>
+    <li class="list-group-item">
+      {{ "sidebar.custOptions.viewOrUpdateProfile" | translate }}
+    </li>
+    <li class="list-group-item">
+      {{ "sidebar.custOptions.changePwd" | translate }}
+    </li>
   </ul>
 </div>
 
 <div *ngIf="!isCartEmpty">
   <hr />
-  <h3>Cart options</h3>
+  <h3>{{ "sidebar.cartOptions.title" | translate }}</h3>
   <ul class="list-group">
     <li class="list-group-item" routerLink="/view-cart">
       <h2 class="fas fa-shopping-cart text-primary">

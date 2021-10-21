@@ -21,3 +21,14 @@ Content-Type: application/json
 }
 
 ###
+
+POST /customers
+Host: vinbasket.herokuapp.com
+Content-Type: application/json
+
+{
+    "name": "Shyam Sundar",
+    "email": "shyamsundar@xmpl.com",
+    "password": "topsecret"
+}
+
