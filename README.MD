@@ -1,5 +1,7 @@
 # Angular training for Epsilon October 2021 batch
 
+## You may reach me on (message) 9731424784 or (eamil) vinod@vinod.co
+
 ![](./concept-images/01.dio.png)
 
 ![](./concept-images/02.dio.png)

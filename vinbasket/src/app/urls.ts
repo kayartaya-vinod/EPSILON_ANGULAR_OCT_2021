@@ -1,5 +1,5 @@
 // const baseUrl = 'http://localhost:8080/';
-const baseUrl = 'http://vinbasket.herokuapp.com/';
+const baseUrl = 'https://vinbasket.herokuapp.com/';
 
 export const productsUrl = baseUrl + 'products/';
 export const brandsUrl = baseUrl + 'brands/';

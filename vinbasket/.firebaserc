@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-vinbasket": {
+      "hosting": {
+        "vinbasket": [
+          "angular-vinbasket"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-vinbasket"
+  }
+}

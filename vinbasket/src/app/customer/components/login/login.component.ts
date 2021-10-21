@@ -9,7 +9,7 @@ import { CustomerService } from '../../../service/customer.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginData: { email: (string), password: (string) } = { email: 'vinod@vinod.co', password: 'topsecret' };
+  loginData: { email: (string), password: (string) } = { email: '', password: '' };
 
   constructor(private customerService: CustomerService,
     private activatedRoute: ActivatedRoute,

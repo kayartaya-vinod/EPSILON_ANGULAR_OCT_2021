@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "vinbasket:build:production",
+            "firebaseProject": "angular-vinbasket",
+            "firebaseHostingSite": "angular-vinbasket"
+          }
         }
       }
     }
