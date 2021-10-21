@@ -1,0 +1,29 @@
+<h3>Custom directve demo</h3>
+
+<select name="userChoiceForBorderColor" [(ngModel)]="userChoiceForBorderColor">
+  <option value="red">Red</option>
+  <option value="black">Black</option>
+  <option value="blue">Blue</option>
+  <option value="cyan">Cyan</option>
+  <option value="green">Green</option>
+</select>
+
+<div
+  appBox
+  [borderColor]="userChoiceForBorderColor"
+  borderThickness="5px"
+  borderRadius="10px"
+>
+  This is a div
+</div>
+<div appBox borderColor="blue" borderThickness="10px">This is also a div</div>
+
+<h4 appBox borderColor="green" borderThickness="1px">
+  This is a heading4 element
+</h4>
+
+<img
+  appBox
+  src="https://cdn.pixabay.com/photo/2021/09/23/09/01/swan-6649194__480.jpg"
+  alt="swan"
+/>
